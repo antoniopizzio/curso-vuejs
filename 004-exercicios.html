@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  </head>
+  <body>
+    <!-- Acerte o código abaixo -->
+    <div id="app">
+      <p>{{empresa}}, {{produto}}</p>
+      <p>Perímetro {{ladoQuadrado * 4}}</p>
+      <p>Área {{ladoQuadrado * 2}}</p>
+    </div>
+    <script>
+      const vm = new Vue({
+        el: "#app",
+        data: {
+          empresa: "Apple",
+          produto: "iPhone",
+          ladoQuadrado: 4,
+        },
+      });
+    </script>
+
+    <!-- 
+      Crie uma instância que mostre
+      baseado no valor do lado do quadrado
+      o seu perímetro (lX4) e área (lXl).
+      O lado do quadrado deve ser um estado reativo 
+    -->
+  </body>
+</html>

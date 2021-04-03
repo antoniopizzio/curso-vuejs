@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <ul>
+        <li v-for="(curso, index) in cursos">{{ curso }}</li>
+      </ul>
+
+      <ul>
+        <li v-for="(curso) in cursosDois">
+          {{ curso.nome }} - {{ curso.tipo }}
+        </li>
+      </ul>
+
+      <ul>
+        <li v-for="(estado, key, index) in estados" :key="index">
+          {{ estado.nome }} - {{ estado.populacao }} - {{ key }} - {{ index }}
+        </li>
+      </ul>
+
+      <button @click="modificar">Modificar</button>
+
+      <div v-for="n in 10">{{ n }}</div>
+    </div>
+
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          cursos: ["HTML", "CSS", "JavaScript", "VueJS"],
+          cursosDois: [
+            {
+              nome: "HTML",
+              tipo: "Iniciante"
+            },
+            {
+              nome: "VueJS",
+              tipo: "Avançado"
+            }
+          ],
+          estados: {
+            sp: {
+              populacao: 100,
+              nome: "São Paulo"
+            },
+            rj: {
+              populacao: 101,
+              nome: "Rio de Janeiro"
+            },
+            mg: {
+              populacao: 102,
+              nome: "Minas Gerais"
+            }
+          }
+        },
+        methods: {
+          modificar() {
+            this.$set(this.cursos, 0, "HTML 5");
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

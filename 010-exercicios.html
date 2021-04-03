@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <ul>
+        <li>
+          <a
+            @click.prevent="getAcao"
+            href="https://api.origamid.dev/stock/aapl/quote"
+          >
+            Apple
+          </a>
+        </li>
+        <li>
+          <a
+            @click.prevent="getAcao"
+            href="https://api.origamid.dev/stock/googl/quote"
+          >
+            Google
+          </a>
+        </li>
+        <li>
+          <a
+            @click.prevent="getAcao"
+            href="https://api.origamid.dev/stock/amzn/quote"
+          >
+            Amazon
+          </a>
+        </li>
+        <li>
+          <a
+            @click.prevent="getAcao"
+            href="https://api.origamid.dev/stock/ebay/quote"
+          >
+            Ebay
+          </a>
+        </li>
+        <li>
+          <a
+            @click.prevent="getAcao"
+            href="https://api.origamid.dev/stock/pypl/quote"
+          >
+            Paypal
+          </a>
+        </li>
+      </ul>
+
+      <p>Company Name {{ acao.companyName }}</p>
+      <p>Latest Price {{ acao.latestPrice }}</p>
+      <p>Market Cap {{ acao.marketCap }}</p>
+    </div>
+
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          acao: {}
+        },
+        methods: {
+          async getAcao(event) {
+            // const url = event.target.getAttribute("href");
+            const url = event.currentTarget.href;
+            const response = await fetch(url);
+            const dataJson = await response.json();
+            this.acao = dataJson;
+          }
+        }
+      });
+    </script>
+    <!--
+        Utilizando API
+        https://api.origamid.dev/stock/aapl/quote
+      
+        Adicione um evento de clique a cada <a> do html
+        acima e previna o comportamento padrão.
+      
+        Faça o fetch dos dados do href ao click e mostre na
+        interface o companyName, latestPrice, marketCap
+      -->
+  </body>
+</html>

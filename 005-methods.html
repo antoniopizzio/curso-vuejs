@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <p>{{total}}</p>
+      <p>{{compra}}</p>
+      <p><button @click="incrementar">Incrementar</button></p>
+      <p><button @click="diminuir">Diminuir</button></p>
+      <p><button @click="mudarCompra('Guitarra')">Guitarra</button></p>
+      <p><button @click="mudarCompra('Violão')">Violão</button></p>
+      <p><button @click="mostrarEvento">Evento</button></p>
+      <p>{{evento}}</p>
+    </div>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          total: 0,
+          compra: "",
+          evento: "",
+        },
+        methods: {
+          incrementar() {
+            this.total++;
+          },
+          diminuir() {
+            this.total--;
+          },
+          mudarCompra(instrumento) {
+            this.compra = instrumento;
+          },
+          mostrarEvento() {
+            this.evento = event;
+            this.teste();
+          },
+          teste() {
+            this.evento += " Método ativado";
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
